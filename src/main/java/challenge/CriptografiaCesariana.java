@@ -7,35 +7,39 @@ ao terminar rodar comando  gradle -v no cmd
 
 public class CriptografiaCesariana implements Criptografia {
 
-
+   
     @Override
-    public String criptografar(String texto) {
-        return this.criJS(texto, 3);
+    public String criptografar(String txtDeEntradaDeEntrada) {
+        return this.jcCptDcpt(txtDeEntradaDeEntrada, 3);
     }
 
+    /*
+    função jcCptDcpt faz criptografia e Descriptografia
+     */
     @Override
-    public String descriptografar(String texto) {
-        return this.criJS(texto, -3);
+    public String descriptografar(String txtDeEntradaDeEntrada) {
+        return this.jcCptDcpt(txtDeEntradaDeEntrada, -3);
     }
 
-    public String criJS(String texto, int K) {
-        String criJSText= "";
-       String entrada ="";
-        
 
+    private String jcCptDcpt(String texto, int Chave) {
+        String comparativo = "abcdefghijklmnopqrstuvwxyz";
+        String jcCptDcptText= "";
+        char Alpha='a';
+        char Omega='z';
         if (texto.isEmpty()) {
-            System.out.println("Nenhum valor foi informado");
-            } else {
-        System.out.println("Nenhum valor foi informado");}
+            throw new IllegalArgumentException("Não é permitido dados nulo");
+        }
 
-        for (char alfabetoLetra : texto.toLowerCase().toCharArray()) {
+        for (char letraDeComparacaoDeComparacao : texto.toLowerCase().toCharArray()) {
 
-            while( alfabetoLetra >= 'a' && alfabetoLetra <= 'z' ) {
-               int position = Math.floorMod((entrada.indexOf(alfabetoLetra) + K), entrada.length());
-                criJSText += entrada.charAt(position);
-                criJSText += alfabetoLetra;
+            if( letraDeComparacaoDeComparacao >= Alpha && letraDeComparacaoDeComparacao <= Omega ) {
+               int position = Math.floorMod((comparativo.indexOf(letraDeComparacaoDeComparacao) + Chave), comparativo.length());
+                jcCptDcptText += comparativo.charAt(position);
+            }else {
+                jcCptDcptText += letraDeComparacaoDeComparacao;
             }
         }
-        return criJSText;
+        return jcCptDcptText;
     }
-   }
+}
