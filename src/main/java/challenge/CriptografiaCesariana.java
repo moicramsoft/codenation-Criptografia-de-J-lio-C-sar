@@ -1,9 +1,12 @@
 package challenge;
+/* para rodar o projeto precisa do Gradle e declarar com variavel de ambiente do Windows
+https://gradle.org/install/
 
-import java.util.Scanner;
+ao terminar rodar comando  gradle -v no cmd
+*/
 
-/** Cesar's cryptography. */
 public class CriptografiaCesariana implements Criptografia {
+
 
     @Override
     public String criptografar(String texto) {
@@ -17,10 +20,7 @@ public class CriptografiaCesariana implements Criptografia {
 
     public String criJS(String texto, int K) {
         String criJSText= "";
-        Scanner scan = new Scanner (System.in); 
-        System.out.println ("Digite o texto: "); 
-        String entrada = scan.nextLine(); 
-        System.out.println (entrada); 
+       String entrada ="";
         
 
         if (texto.isEmpty()) {
@@ -38,7 +38,4 @@ public class CriptografiaCesariana implements Criptografia {
         }
         return criJSText;
     }
-    public static void main(String[] args) { 
-        
-
-}}
+   }
